@@ -9,7 +9,7 @@ define('DB_USER', 'root');
 
 /** MySQL database password */
 
-define('DB_PASSWORD', 'rfGkpfsPplPvRrMPoczkiHhkiQHQCEfb');
+define('DB_PASSWORD', 'gxOiWwihlhNIPavWgWGweWPctODyXAJo');
 
 /** MySQL database name */
 
