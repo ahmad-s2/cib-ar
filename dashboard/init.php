@@ -16,6 +16,12 @@ debug_mode();
 
 $Core = new Core();
 $User = new User();
+$db = new DB();
 
+$db->query("SELECT DATABASE() as dbname");
+
+$result = $db->fetch();
+
+die("Connected DB: " . $result->dbname);
 ?>
 
