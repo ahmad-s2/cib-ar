@@ -37,8 +37,7 @@ if (isset($_POST['submit'])) {
     exit;
 }
     $id = $User->UpdateAccount($userId, $site);
-    var_dump($id);
-exit;
+
     if ($id) {
 
         $dataUser = [
@@ -50,6 +49,10 @@ exit;
 
 
     session_write_close();    
+
+    if (headers_sent($file, $line)) {
+    die("Headers already sent in $file on line $line");
+}
     header("Location: waitaccount.php");
 
         exit;
