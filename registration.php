@@ -1,6 +1,6 @@
 <?php
-error_reporting(0);
-ini_set('display_errors', 0);
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 session_start();
 
@@ -29,6 +29,8 @@ if (isset($_POST['submit'])) {
     );
 
     $userId = $User->register($site);
+    var_dump($userId);
+exit;
     if ($userId) {
         $_SESSION['user_id'] = $userId;
 
