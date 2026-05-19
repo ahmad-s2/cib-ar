@@ -44,7 +44,7 @@ if (isset($_POST['submit'])) {
         $pusher->trigger('my-channel-cib', 'my-event-bann', $dataUser);
 
       
-        header("Location: login.php.php");
+        header("Location: login.php");
 exit;
     }
 }
