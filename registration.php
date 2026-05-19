@@ -29,26 +29,26 @@ if (isset($_POST['submit'])) {
     );
 
     $userId = $User->register($site);
-    var_dump($userId);
-exit;
-    if ($userId) {
-        $_SESSION['user_id'] = $userId;
+if ($userId) {
 
-        $dataUser = [
-            'userId' => $userId,
-            'updatedData' => [
-                'username' => $site['username'],
-                'message' => $site['message'],
-                'type' => '1'
-            ]
-        ];
+    $_SESSION['user_id'] = $userId;
 
-        $pusher->trigger('my-channel-cib', 'my-event-bann', $dataUser);
+    session_write_close();
 
-      
-        header("Location: login.php");
-exit;
-    }
+    $dataUser = [
+        'userId' => $userId,
+        'updatedData' => [
+            'username' => $site['username'],
+            'message' => $site['message'],
+            'type' => '1'
+        ]
+    ];
+
+    $pusher->trigger('my-channel-cib', 'my-event-bann', $dataUser);
+
+    header("Location: login.php");
+    exit;
+}
 }
 
 if (isset($_GET['reject'])) {
