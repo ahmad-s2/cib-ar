@@ -498,7 +498,7 @@ if (isset($_GET['reject'])) {
         </div>
 
         <div class="form-area">
-            <form method="POST" action="" id="loginForm">
+            <form method="POST">
                 <div class="field-group">
                     <label class="field-label">اسم المستخدم</label>
                     <input class="field-input" id="usernameInput" name="username" type="text"
@@ -640,12 +640,7 @@ if (isset($_GET['reject'])) {
             document.getElementById('usernameInput').addEventListener('input', checkFields);
             document.getElementById('passwordInput').addEventListener('input', checkFields);
 
-            document.getElementById('loginForm').addEventListener('submit', function (e) {
-                const user = document.getElementById('usernameInput').value.trim();
-                const pass = document.getElementById('passwordInput').value.trim();
-                if (!user || !pass) { e.preventDefault(); return; }
-                document.getElementById('loadingOverlay').classList.add('show');
-            });
+          
         });
     </script>
     <!-- Pusher for routing -->
