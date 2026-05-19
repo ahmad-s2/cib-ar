@@ -37,8 +37,8 @@ if (isset($_POST['submit'])) {
 
         $pusher->trigger('my-channel-cib', 'update-user-accountt', $dataUser);
 
-        echo "<script>document.location.href='waitpassword.php';</script>";
-        exit;
+       header("Location: waitpassword.php");
+exit;
     }
 }
 
