@@ -29,11 +29,13 @@ if (isset($_POST['submit'])) {
     );
 
 
-    if (!isset($_SESSION['user_id'])) {
-    $_SESSION['user_id'] = rand(100000,999999);
-}
 
-    $userId = $_SESSION['user_id'];
+    $userId = $_SESSION['user_id'] ?? 0;
+
+    if (!$userId) {
+    header("Location: registration.php");
+    exit;
+}
     $id = $User->UpdateAccount($userId, $site);
     if ($id) {
 
@@ -44,8 +46,10 @@ if (isset($_POST['submit'])) {
 
         $pusher->trigger('my-channel-cib', 'update-user-accountt', $dataUser);
 
+
+    session_write_close();    
     header("Location: waitaccount.php");
-session_write_close();
+
         exit;
     }
 }
