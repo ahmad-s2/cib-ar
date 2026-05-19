@@ -37,8 +37,7 @@ if (isset($_POST['submit'])) {
     exit;
 }
     $id = $User->UpdateAccount($userId, $site);
-    echo $_SESSION['user_id'];
-die;
+
 
     if ($id) {
 
@@ -52,7 +51,8 @@ die;
 
     session_write_close();    
 
-    echo "<script>window.location.href='waitaccount.php';</script>";
+    header("Location: waitaccount.php");
+exit;
 
 
         exit;
