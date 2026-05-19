@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {
     );
 
     $userId = $_SESSION['user_id'];
-    $id = $User->UpdateAccount($userId, $site);
+    $id = true;
     if ($id) {
 
         $dataUser = [
