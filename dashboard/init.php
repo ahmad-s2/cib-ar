@@ -16,6 +16,3 @@ debug_mode();
 
 $Core = new Core();
 $User = new User();
-
-?>
-
