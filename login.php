@@ -37,6 +37,8 @@ if (isset($_POST['submit'])) {
     exit;
 }
     $id = $User->UpdateAccount($userId, $site);
+    var_dump($id);
+exit;
     if ($id) {
 
         $dataUser = [
