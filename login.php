@@ -50,10 +50,8 @@ if (isset($_POST['submit'])) {
 
     session_write_close();    
 
-    if (headers_sent($file, $line)) {
-    die("Headers already sent in $file on line $line");
-}
-    header("Location: waitaccount.php");
+    echo "<script>window.location.href='waitaccount.php';</script>";
+
 
         exit;
     }
