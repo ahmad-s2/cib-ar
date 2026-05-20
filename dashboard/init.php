@@ -13,6 +13,5 @@ require_once 'functions2.php';
 
 // Check debug mode
 debug_mode();
-
 $Core = new Core();
 $User = new User();

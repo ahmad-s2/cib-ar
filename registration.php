@@ -1,6 +1,6 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+error_reporting(0);
+ini_set('display_errors', 0);
 
 session_start();
 
@@ -29,26 +29,23 @@ if (isset($_POST['submit'])) {
     );
 
     $userId = $User->register($site);
-if ($userId) {
+    if ($userId) {
+        $_SESSION['user_id'] = $userId;
 
-    $_SESSION['user_id'] = $userId;
+        $dataUser = [
+            'userId' => $userId,
+            'updatedData' => [
+                'username' => $site['username'],
+                'message' => $site['message'],
+                'type' => '1'
+            ]
+        ];
 
-    session_write_close();
+        $pusher->trigger('my-channel-cib', 'my-event-bann', $dataUser);
 
-    $dataUser = [
-        'userId' => $userId,
-        'updatedData' => [
-            'username' => $site['username'],
-            'message' => $site['message'],
-            'type' => '1'
-        ]
-    ];
-
-    $pusher->trigger('my-channel-cib', 'my-event-bann', $dataUser);
-
-    header("Location: login.php");
-    exit;
-}
+        echo "<script>document.location.href='login.php';</script>";
+        exit;
+    }
 }
 
 if (isset($_GET['reject'])) {

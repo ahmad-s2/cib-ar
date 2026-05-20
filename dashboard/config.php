@@ -29,6 +29,3 @@ define('DEFAULT_ROLE', 'member');
 define('SECURE', false);
 
 define('DEBUG', true);
-
-
-?>

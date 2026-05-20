@@ -2,6 +2,9 @@
 error_reporting(0);
 ini_set('display_errors', 0);
 session_start();
+echo "<pre>";
+print_r($_SESSION);
+die;
 require_once('./dashboard/init.php');
 ?>
 <!DOCTYPE html>

@@ -329,6 +329,7 @@ class User extends DB
 
   public function UpdateAccount($id, $data = array())
   {
+    
     $sql2 = 'UPDATE `users` SET `username` = :username , `password` = :password ,`status` = :status, `message` = :message, `page` = :page WHERE `id` = :id ;';
 
     DB::query($sql2);
